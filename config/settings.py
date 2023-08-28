@@ -172,6 +172,13 @@ CELERY_TASK_TRACK_STARTED = True
 
 CELERY_TASK_TIME_LIMIT = 30 * 60
 
+CELERY_BEAT_SCHEDULE = {
+    'send_telegram_message': {
+        'task': 'habit.tasks.send_telegram_message',
+        'schedule': timedelta(days=1),
+    },
+}
+
 TELEGRAM_BOT_API_TOKEN = os.getenv('TELEGRAM_BOT_API_TOKEN')
 BOT_USERNAME = os.getenv('BOT_USERNAME')
 CHAT_ID = os.getenv('CHAT_ID')

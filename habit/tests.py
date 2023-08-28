@@ -29,7 +29,6 @@ class HabitTestCase(APITestCase):
 
         self.client.force_authenticate(user=self.user)
 
-
         data = {
             'user': self.user.id,
             'place': 'Улица',
@@ -75,8 +74,10 @@ class HabitTestCase(APITestCase):
             response.status_code,
             status.HTTP_200_OK
         )
-        self.assertEqual(response.data['place'],
-                         'Дом')
+        self.assertEqual(
+            response.data['place'],
+            'Дом'
+        )
 
     def test_delete_habit(self):
 

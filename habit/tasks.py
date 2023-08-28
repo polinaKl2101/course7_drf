@@ -1,4 +1,3 @@
-from datetime import date, timedelta
 from celery import shared_task
 from config import settings
 from habit.models import Habit
@@ -11,11 +10,9 @@ chat_id = settings.CHAT_ID
 
 @shared_task
 def send_telegram_message(habit_id):
+
     habit = Habit.objects.get(id=habit_id)
-    time = habit.time
-    now = datetime.now().time()
-    habit_timer = (datetime.combine(datetime.today(), time) - datetime.combine(datetime.today(),
-                                                                                             now)).total_seconds()
+
     message = {f"Полезная привычка {habit.user.telegram_username} \n"
                f"Я буду {habit.action} в {habit.place} Время: {habit.time}"}
 

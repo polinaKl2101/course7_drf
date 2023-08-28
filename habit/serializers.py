@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from habit.validators import validate_time, validate_periodicity, validate_habit, validate_pleasant_habit
+from habit.validators import validate_time, validate_periodicity, validate_habit
 from users.models import User
 from habit.models import Habit
 
