@@ -21,3 +21,4 @@ def send_telegram_message(habit_id):
         "text": message,
     }
     response = requests.get(url, params=params)
+    return response
