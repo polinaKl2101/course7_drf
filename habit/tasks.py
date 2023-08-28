@@ -1,7 +1,6 @@
 from celery import shared_task
 from config import settings
 from habit.models import Habit
-from datetime import datetime
 import requests
 
 telegram_bot_api_token = settings.TELEGRAM_BOT_API_TOKEN

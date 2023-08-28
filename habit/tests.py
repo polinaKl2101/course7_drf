@@ -1,4 +1,3 @@
-from django.test import TestCase
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
@@ -65,8 +64,7 @@ class HabitTestCase(APITestCase):
         test_data_fixed = {'place': 'Дом'}
 
         response = self.client.patch(
-            reverse('habit:update_habit',
-            args=[self.habit.id]),
+            reverse('habit:update_habit', args=[self.habit.id]),
             data=test_data_fixed
         )
 
